@@ -13,3 +13,15 @@ body {
     stroke: #fff;
     stroke-linejoin: round;
 }
+
+/*-----------d3-tip-------------*/
+.d3-tip {
+    margin-bottom: 20px;
+    line-height: 1;
+    padding: 6px;
+    background: rgba(100, 44, 122, 0.8);
+    color: #fff;
+    border:solid 2px rgba(100, 44, 122, 1);
+    border-radius: 4px;
+    font-size: 12px;
+}
