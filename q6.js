@@ -90,9 +90,27 @@ function ready([us]) {
         })
         .attr("d", path)
         .call(tip)
-        .on('mouseover', function (d) {            
-            var strInner = d.State + `<br>` + d.County + `<br>` + d.Poverty + `%<br>` + d.TotalPop + `<br>` + d.IncomePerCap;
+        .on('mouseover', function (d) {
+            var x = d3.event.x;
+            var y = d3.event.y;
+            var tip_w = 200;
+            var tip_h = 200;
+            var strInner = d.State + `<br>` + d.County + `<br>` + d.Poverty + `%<br>` + d.TotalPop.toLocaleString('en') + `<br>` + d.IncomePerCap.toLocaleString('en');
             tip.show(strInner);
+            if(x < tip_w && y < tip_h){
+                tip.direction('e');
+                tip.direction('s');
+            }
+            else if(x < tip_w){
+                tip.direction('e');
+            }
+            else if(y < tip_h){
+                tip.direction('s');
+            }else{
+                tip.direction('n');
+            }
+            
+            
         });
 
     svg.append("path")
